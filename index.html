@@ -500,19 +500,19 @@
         /* Contact Section Updates */
         .form-group input,
         .form-group textarea,
-        .form-group select {   /* <--- ADD THIS LINE */
+        .form-group select {   
             padding: 15px;
             border: 2px solid #ffe6a3;
             border-radius: 10px;
             font-size: 16px;
             transition: all 0.3s;
-            width: 100%;       /* Ensures it fills the box */
-            background: white; /* Ensures background is white */
+            width: 100%;       
+            background: white; 
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
-        .form-group select:focus { /* <--- AND THIS LINE */
+        .form-group select:focus { 
             outline: none;
             border-color: #FFD700;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
@@ -520,9 +520,9 @@
 		
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* This splits the screen 50/50 */
+            grid-template-columns: 1fr 1fr; /* This splits the screen 50/50 on large screens */
             gap: 50px;
-            align-items: start; /* Aligns tops of both columns */
+            align-items: start; 
         }
 
         /* Left Column: Holds all info items */
@@ -613,47 +613,112 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 20px rgba(255, 165, 0, 0.4);
         }
-
+        
+        /* ======================================= */
+        /* MOBILE RESPONSIVENESS (max-width: 768px)*/
+        /* ======================================= */
         @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .home-content h1 {
-                font-size: 36px;
-            }
-            
+            /* General Adjustments */
             .navbar {
-                padding: 15px 20px;
+                padding: 10px 15px; /* Reduced padding */
+            }
+            
+            /* Hide social and language selectors on small phones to save space */
+            .social-links, .language-selector {
+                display: none; 
+            }
+
+            .logo-text {
+                font-size: 24px;
+            }
+
+            /* Home Section */
+            .home-content h1 {
+                font-size: 40px; /* Smaller title */
+            }
+            
+            .home-content p {
+                font-size: 18px; /* Smaller subtitle */
             }
             
             .btn-group {
-                flex-direction: column;
+                flex-direction: column; /* Buttons stack vertically */
+                gap: 15px;
             }
 
-            .about-content h2 {
-                font-size: 2rem;
+            .btn {
+                width: 80vw; /* Make buttons wide on mobile */
+                max-width: 300px;
+            }
+
+            /* Services Section */
+            .services-content {
+                padding: 50px 20px; /* Reduced padding */
+                max-width: 100%;
+            }
+
+            .services-content h2 {
+                font-size: 36px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr; /* Services stack in a single column */
+            }
+
+            /* About Section */
+            .about-content {
+                padding: 50px 20px;
+            }
+
+            .about-text, .about-doctor {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 10px;
+            }
+            
+            .team-stats {
+                gap: 20px;
+                margin-bottom: 30px;
             }
 
             .stat-number {
-                font-size: 2rem;
+                font-size: 32px;
             }
-
+            
             .doctors-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
+                grid-template-columns: 1fr; /* Doctors stack vertically */
+                padding: 10px 20px;
+                /* Ensure cards are centered */
+                justify-items: center; 
             }
 
             .doctor-card {
-                height: 350px;
+                width: 100%; 
+                max-width: 350px;
+                height: 400px;
             }
 
-            .about-content {
-                padding: 80px 20px 30px;
+            /* Contact Section */
+            .contact-content {
+                padding: 50px 20px;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr; /* Contact columns stack vertically */
+                gap: 20px;
+            }
+            
+            /* Fix for map and form container sizing */
+            .map-container {
+                height: 200px !important; 
+            }
+            
+            .info-item {
+                transform: none; /* Remove translation hover effect */
             }
         }
     </style>
@@ -666,7 +731,7 @@
         </div>
         <div class="nav-right">
             <div class="social-links">
-                <a href="https://www.facebook.com/SDCspanderashvilidentalclinic" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.facebook.com/SDCspanderashvilidentalclinic" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -680,7 +745,6 @@
     </nav>
 
     <div class="scroll-container">
-        <!-- Home Section -->
         <section id="home" class="section">
             <div class="home-content">
                 <h1 data-translate="home-title">თქვენი ღიმილის პარტნიორი</h1>
@@ -692,7 +756,6 @@
             </div>
         </section>
 
-        <!-- Services Section -->
         <section id="services" class="section">
             <div class="services-content">
                 <h2 data-translate="services-title">ჩვენი სერვისები</h2>
@@ -731,7 +794,6 @@
             </div>
         </section>
 
-        <!-- About Section with Doctor Cards -->
         <section id="about" class="section">
             <div class="about-content">
                 <div class="about-text">    
@@ -757,9 +819,7 @@
 				<h2 data-translate="about-title">ექიმები</h2>
                 <div class="team-stats">
                     
-                 <!-- Doctor Cards -->
-                <div class="doctors-grid">
-                    <!-- Doctor 1 -->
+                 <div class="doctors-grid">
                     <div class="doctor-card" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front">
@@ -785,7 +845,6 @@
                         </div>
                     </div>
 
-                    <!-- Doctor 2 -->
                     <div class="doctor-card" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front">
@@ -811,7 +870,6 @@
                         </div>
                     </div>
 
-                    <!-- Doctor 3 -->
                     <div class="doctor-card" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front">
@@ -837,7 +895,6 @@
                         </div>
                     </div>
 
-                    <!-- Doctor 4 -->
                     <div class="doctor-card" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front">
@@ -861,8 +918,7 @@
 							</div>
 						</div>
 					</div>
-					                    <!-- Doctor 6 -->
-                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
+					                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front">
                                 <img src="doctors/gio.jpg" alt="Doctor 4">
@@ -885,8 +941,7 @@
 							</div>
 						</div>
 					</div>
-					                    <!-- Doctor 6 -->
-                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
+					                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
                         <div class="card-inner">
                             <div class="card-front">
                                 <img src="doctors/gio.jpg" alt="Doctor 4">
@@ -919,110 +974,121 @@
 			</Section>
 
 
-					 <!-- Contact Section -->
-        <section id="contact" class="section">
+					 <section id="contact" class="section">
         <div class="contact-content" >
             <h2 data-translate="contact-title" >დაგვიკავშირდით</h2>
                        <div class="contact-grid">
+                
                 <div class="contact-info">
                    
 					<div class="info-item">
-                <i class="fas fa-phone"></i>
-                    <div>
-                        <h3 data-translate="phone-title">ტელეფონი</h3>
-                        <p>+995 032 218 56 76</p>
-                        <p>+995  550 051 122</p>
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3 data-translate="phone-title">ტელეფონი</h3>
+                            <p>
+                                <a href="https://wa.me/9950322185676" target="_blank" style="text-decoration: none; color: inherit;">
+                                    <i class="fab fa-whatsapp" style="color: #25D366; margin-right: 5px;"></i> +995 032 218 56 76
+                                </a>
+                            </p>
+                            <p>
+                                <a href="https://wa.me/995550051122" target="_blank" style="text-decoration: none; color: inherit;">
+                                    <i class="fab fa-whatsapp" style="color: #25D366; margin-right: 5px;"></i> +995 550 051 122
+                                </a>
+                            </p>
+                        </div>
                     </div>
-                </div>
-				<div class="info-item" onclick="window.location.href='mailto:info@ssc.ge'" style="cursor: pointer;">
-				<i class="fas fa-envelope"></i>
-					<div>
-						<h3 data-translate="email-title">ელ-ფოსტა</h3>
-						<p>info@ssc.ge
-						</p>
-				</div>
-				</div>
-				<div class="info-item">
-					<i class="fas fa-clock"></i>
-						<div>
-							<h3 data-translate="hours-title">სამუშაო საათები</h3>
-							<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-							<div>
-								<p data-translate="hours">ორშაბათი:</p>
-								<p data-translate="hours">სამშაბათი:</p>
-								<p data-translate="hours">ოთხშაბათი:</p>
-								<p data-translate="hours">ხუთშაბათი:</p>
-								<p data-translate="hours">პარასკევი: </p>
-								<p data-translate="hours">შაბათი: </p>
-								<p data-translate="hours">კვირა:</p>
-							</div>
-							<div>
-								<p data-translate="hours">10:00 - 19:00</p>
-								<p data-translate="hours">10:00 - 19:00</p>
-								<p data-translate="hours">10:00 - 19:00</p>
-								<p data-translate="hours">10:00 - 19:00</p>
-								<p data-translate="hours">10:00 - 19:00</p>
-								<p data-translate="hours">10:00 - 19:00</p>
-								<p data-translate="hours">10:00 - 19:00</p>
-							</div>
-						</div>
-					</div>
-				</div>
-	
-                </div>
-				<div>
-					<form class="contact-form">
-    <div class="form-group">
-        <input type="text" placeholder="თქვენი სახელი" data-translate-placeholder="form-name" required>
-    </div>
-    
-<div class="form-group">
-    <select id="service-select" required>
-        <option value="" disabled selected data-translate="select-service-default">აირჩიეთ სერვისი...</option>
-        
-        <option value="პროფილაქტიკა">პროფილაქტიკა</option>
-        <option value="თერაპია">თერაპია</option>
-        <option value="ორთოდონტია">ორთოდონტია</option>
-        <option value="ესთეტიკური">ესთეტიკური</option>
-        <option value="ქირურგია">ქირურგია</option>
-        <option value="ბავშვთა">ბავშვთა</option>
-=    </select>
-</div>
 
-    <div class="form-group">
-        <input type="tel" placeholder="ტელეფონი" data-translate-placeholder="form-phone" required>
+                    <div class="info-item" onclick="window.location.href='mailto:info@ssc.ge'" style="cursor: pointer;">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3 data-translate="email-title">ელ-ფოსტა</h3>
+                            <p>info@ssc.ge</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3 data-translate="hours-title">სამუშაო საათები</h3>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                <div>
+                                    <p data-translate="hours">ორშაბათი:</p>
+                                    <p data-translate="hours">სამშაბათი:</p>
+                                    <p data-translate="hours">ოთხშაბათი:</p>
+                                    <p data-translate="hours">ხუთშაბათი:</p>
+                                    <p data-translate="hours">პარასკევი: </p>
+                                    <p data-translate="hours">შაბათი: </p>
+                                    <p data-translate="hours">კვირა:</p>
+                                </div>
+                                <div>
+                                    <p>10:00 - 19:00</p>
+                                    <p>10:00 - 19:00</p>
+                                    <p>10:00 - 19:00</p>
+                                    <p>10:00 - 19:00</p>
+                                    <p>10:00 - 19:00</p>
+                                    <p>10:00 - 19:00</p>
+                                    <p>10:00 - 19:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3 data-translate="address-title">მისამართი</h3>
+                            <p data-translate="address">თეოფანე დავითაიას 1ბ, თბილისი</p>
+                        </div>
+                    </div>
+
+                    <div class="map-container" style="width: 100%; height: 250px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.2); margin-top: 10px;">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            style="border:0" 
+                            allowfullscreen
+                            /* Map with Red Pin on Teophane Davitaia 1b */
+                            src="https://maps.google.com/maps?q=Teophane+Davitaia+St+1b,+Tbilisi&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                        </iframe>
+                    </div>
+
+                </div>
+
+                <div>
+					<form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="თქვენი სახელი" data-translate-placeholder="form-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select id="service-select" required>
+                                <option value="" disabled selected data-translate="select-service-default">აირჩიეთ სერვისი...</option>
+                                <option value="პროფილაქტიკა">პროფილაქტიკა</option>
+                                <option value="თერაპია">თერაპია</option>
+                                <option value="ორთოდონტია">ორთოდონტია</option>
+                                <option value="ესთეტიკური">ესთეტიკური</option>
+                                <option value="ქირურგია">ქირურგია</option>
+                                <option value="ბავშვთა">ბავშვთა</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="tel" placeholder="ტელეფონი" data-translate-placeholder="form-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="შეტყობინება" data-translate-placeholder="form-message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" data-translate="form-submit">გაგზავნა</button>
+                    </form>
+                </div> 
+            </div>  
+        </div>
+        </section>
     </div>
-    <div class="form-group">
-        <textarea placeholder="შეტყობინება" data-translate-placeholder="form-message" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn" data-translate="form-submit">გაგზავნა</button>
-</form>
-</div> 
-</div>  
-<div style="margin-top:10px">	
- 	<div class="info-item">
-    <i class="fas fa-map-marker-alt"></i>
-		<div>
-            <h3	data-translate="address-title">მისამართი</h3>
-            <p data-translate="address">თეოფანე დავითაიას 1ბ, თბილისი</p>
-		</div>
-    </div>
-	<div class="map-container" style="width: 100%; height: 250px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.2); margin-top: 10px;">
-        <iframe 
-            width="100%" 
-            height="100%" 
-            frameborder="0" 
-            style="border:0" 
-            src="https://maps.google.com/maps?q=41.70000807959157, 44.85229366310051&z=15&output=embed" 
-            allowfullscreen>
-        </iframe>
-</div>
-</div>
-</div>
-</section>
-</div>
+
 <script>
-const translations = {
+    const translations = {
         ka: {
             "brand": "SSC",
             "select-service-default": "აირჩიეთ სერვისი...", // New Translation
@@ -1182,7 +1248,17 @@ const translations = {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- SUBMIT HANDLER (Mailto Version) ---
+    // Clear red borders when user types in Name/Phone
+    document.querySelector('.contact-form input[type="text"]').addEventListener('input', function() {
+        this.style.border = "2px solid #ffe6a3";
+        // phoneInput.focus() is NOT here, only border reset
+    });
+    document.querySelector('.contact-form input[type="tel"]').addEventListener('input', function() {
+        this.style.border = "2px solid #ffe6a3";
+    });
+
+
+    // --- SUBMIT HANDLER (Mailto Version with Validation) ---
     document.querySelector('.contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -1200,33 +1276,40 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get the text of the selected service
         const selectedService = serviceSelect.options[serviceSelect.selectedIndex].text;
 
-        // --- NAME VALIDATION ---
+        // --- VALIDATION RULES ---
         
-        // Rule 1: Check length (min 5)
+        // RULE 1: Name Length (Min 5)
         if (name.length < 5) {
-            alert("სახელი არასწორია");
+            alert("სახელი არასწორია (Name must be at least 5 characters).");
             nameInput.style.border = "2px solid red";
+            nameInput.focus();
             return; 
         }
 
-        // Rule 2: Check for numbers
+        // RULE 2: Name Content (No Numbers)
         if (/\d/.test(name)) {
-            alert("სახელი არასწორია");
+            alert("სახელი არასწორია (Name cannot contain numbers).");
             nameInput.style.border = "2px solid red";
+            nameInput.focus();
             return; 
         }
-		if (phone.length < 9 || phone.length>20) {
-            alert("ტელეფონის ნომერი არასწორია.");
+
+        // RULE 3: Phone Content (No letters/symbols)
+        if (/[^0-9+\s-]/.test(phone)) {
+            alert("ტელეფონის ნომერი არასწორია (Phone cannot contain letters).");
             phoneInput.style.border = "2px solid red";
-            return; 
-        }
-		if (/[^0-9+\s-]/.test(phone)) {
-            alert("ტელეფონის ნომერი არასწორია.");
-            phoneInput.style.border = "2px solid red";
+            phoneInput.focus();
             return;
         }
-        // Reset border if valid
-        nameInput.style.border = "2px solid #ffe6a3";
+
+        // RULE 4: Phone Length (9 to 20 characters)
+        if (phone.length < 9 || phone.length > 20) {
+            alert("ტელეფონის ნომერი არასწორია (Phone length must be between 9 and 20).");
+            phoneInput.style.border = "2px solid red";
+            phoneInput.focus();
+            return;
+        }
+        
         // -----------------------
 
         // 3. Construct the Email Content
@@ -1239,13 +1322,9 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         // 4. Open Email App
-        // This will open Outlook, Apple Mail, or Gmail on the user's phone/computer
         window.location.href = `mailto:777chubinidze@gmail.com?subject=${subject}&body=${body}`;
-    });
-
-    // Clear red border when typing
-    document.querySelector('.contact-form input[type="text"]').addEventListener('input', function() {
-        this.style.border = "2px solid #ffe6a3";
     });
 });
 </script>
+</body>
+</html>
