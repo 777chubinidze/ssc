@@ -22,7 +22,6 @@
 
         /* --- Scroll Container (Crucial for V-Scroll Snapping) --- */
         .scroll-container {
-            /* Use a stable height unit for cross-browser reliability on mobile */
             height: 100vh; 
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
@@ -36,13 +35,13 @@
         /* --- General Section Styles --- */
         .section {
             width: 100%;
-            min-height: 100vh; /* Ensures sections take up full viewport height */
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             scroll-snap-align: start;
-            padding-top: 80px; /* Base padding for fixed navbar */
+            padding-top: 80px; 
         }
         
         /* --- Navbar Styles --- */
@@ -54,7 +53,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 50px;
-            background: rgba(255, 255, 255, 0.9); /* Opaque for mobile clarity */
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(1px);
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(1,1,1,0.1);
@@ -122,7 +121,7 @@
         /* --- Home Section --- */
         #home {
             background: #808080 url('homepage/wallpaper.jpg') center/cover;
-            padding-top: 0; /* Home section takes up full screen */
+            padding-top: 0;
         }
 
         #home::before {
@@ -199,7 +198,7 @@
 
         .services-content {
             max-width: 1200px;
-            padding: 20px; /* Reduced from 100px 50px */
+            padding: 20px; 
             width: 100%;
         }
 
@@ -240,9 +239,8 @@
         /* --- About Section (Doctors) --- */
         #about {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-            /* Let the content fill naturally, relying on min-height */
             padding-bottom: 50px; 
-            overflow: hidden; /* Prevent horizontal scroll from -50vw hacks */
+            overflow: hidden; 
         }
         
         .about-content {
@@ -297,12 +295,78 @@
             perspective: 1000px;
             width: 100%;
             max-width: 350px;
-            height: 450px;
+            height: 450px; /* Standard card height */
             cursor: pointer;
         }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .doctor-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .card-front {
+            background: white;
+        }
+
+        /* FIX: Ensure images cover the card front neatly */
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This is key to fit the image without stretching the card */
+            display: block;
+        }
+
+        .doctor-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #989898 0%, #ffc800 100%);
+            transform: rotateY(180deg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
         
-        /* Doctor Card Flip logic (Front/Back/Inner remain the same) */
-        
+        .flip-hint {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0,0,0,0.5);
+            color: #ffc800;
+            padding: 5px 5px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         /* --- Contact Section --- */
         #contact {
             background: linear-gradient(to bottom, #ffffff 0%, #fff9e6 100%);
@@ -355,17 +419,26 @@
         .form-group textarea,
         .form-group select {
             border: 2px solid #ffe6a3;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 100%;
         }
         
         .submit-btn {
             background: #FFD700;
             color: white;
             padding: 15px;
+            border: none;
+            border-radius: 10px;
         }
         
         .map-container {
             margin-top: 20px;
             height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         /* ************************************** */
@@ -377,8 +450,8 @@
             /* Navbar adjustments */
             .navbar {
                 padding: 10px 15px;
-                flex-wrap: wrap; /* Allow wrapping */
-                justify-content: center; /* Center content */
+                flex-wrap: wrap; 
+                justify-content: center; 
             }
             .logo { order: 1; margin-bottom: 5px; }
             .nav-right { order: 2; width: 100%; justify-content: space-around; gap: 10px; }
@@ -388,9 +461,6 @@
             .lang-flag img { width: 18px; height: 18px; }
 
             /* Home Section adjustments */
-            #home {
-                height: 100vh;
-            }
             .home-content h1 {
                 font-size: 36px;
                 margin-top: 50px;
@@ -416,7 +486,7 @@
                 margin-bottom: 30px;
             }
             .services-grid {
-                grid-template-columns: 1fr; /* Stack cards vertically */
+                grid-template-columns: 1fr; 
                 gap: 20px;
             }
             .service-card {
@@ -441,13 +511,16 @@
                 font-size: 14px;
             }
             .doctors-grid {
-                grid-template-columns: 1fr; /* Stack doctor cards */
+                grid-template-columns: 1fr; 
                 gap: 20px;
             }
+            
+            /* FIX: Adjusted card size for better mobile display */
             .doctor-card {
-                max-width: 300px; /* Constrain stacked card width */
-                height: 380px;
+                max-width: 300px; 
+                height: 400px; 
             }
+            /* END FIX */
 
             /* Contact Section adjustments */
             .contact-content {
@@ -458,7 +531,7 @@
                 margin-bottom: 20px;
             }
             .contact-grid {
-                grid-template-columns: 1fr; /* Stack info and form */
+                grid-template-columns: 1fr; 
                 gap: 30px;
             }
             .info-item {
@@ -962,8 +1035,6 @@
     function scrollToSection(index) {
         const container = document.querySelector('.scroll-container');
         const sections = document.querySelectorAll('.section');
-        // Calculate the target scroll position based on the section's position
-        // The container already has the scroll behavior property, so this works fine.
         if (sections[index]) {
             container.scrollTo({
                 top: sections[index].offsetTop,
