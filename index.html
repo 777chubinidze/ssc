@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSC - თქვენი ღიმილის პარტნიორი</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<link rel="icon" type="image/png" href="logo/Dental512x512.png">
     <style>
         * {
             margin: 0;
@@ -78,6 +77,13 @@
             font-size: 24px;
             transition: all 0.3s;
             opacity: 0.6;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-flag img {
+            width: 20px;
+            height: 20px;
         }
 
         .lang-flag:hover, .lang-flag.active {
@@ -111,7 +117,7 @@
 
         /* Home Section */
         #home {
-            background: #808080 url('homepage/wallpaper.jpg') center/cover;
+            background: #808080;
             position: relative;
             overflow: hidden;
             height: 100vh;
@@ -130,6 +136,7 @@
             text-align: center;
             z-index: 1;
             color: #FFD700;
+            padding: 0 20px;
         }
 
         .home-content h1 {
@@ -152,6 +159,7 @@
             gap: 20px;
             justify-content: center;
             animation: fadeInUp 1s ease-out 0.6s backwards;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -203,12 +211,14 @@
         /* Services Section */
         #services {
             background: linear-gradient(to bottom, #fff9e6 0%, #ffffff 100%);
-            height: 100vh;
+            min-height: 100vh;
+            overflow-y: auto;
         }
 
         .services-content {
-            max-width: 100vh;
+            max-width: 1200px;
             padding: 100px 50px;
+            width: 100%;
         }
 
         .services-content h2 {
@@ -260,70 +270,59 @@
         #about {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
             overflow-y: auto;
-            height: auto;
             min-height: 100vh;
         }
 
         .about-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 100px 0px 50px;
+            padding: 100px 20px 50px;
         }
 
         .about-content h2 {
             text-align: center;
             font-size: 50px;
             color: white;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .about-text {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            padding: 10px;
+            padding: 20px;
             border-radius: 20px;
             font-size: 16px;
             line-height: 1.8;
-            margin: 0 auto;
-            width: 100vw;
+            margin: 0 auto 30px;
             text-align: center;
             color: white;
-			position: relative;
-			left: 50%; 
-			right: 50%;
-			margin-left: -50vw;
-			margin-right: -50vw;
         }
-		.about-doctor{
+
+        .about-doctor {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            padding: 10px;
+            padding: 20px;
             border-radius: 20px;
             font-size: 16px;
             line-height: 1.8;
             margin: 0 auto;
-            width: 100vw;
             text-align: center;
             color: white;
-			position: relative;
-			left: 50%; 
-			right: 50%;
-			margin-left: -50vw;
-			margin-right: -50vw;
         }
 
         .team-stats {
             display: flex;
             justify-content: center;
-            gap: 50px;
-            margin-bottom: 60px;
+            gap: 30px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
         .stat {
             text-align: center;
             color: white;
+            min-width: 120px;
         }
 
         .stat-number {
@@ -337,23 +336,20 @@
             opacity: 0.9;
         }
 
-		.doctors-grid {
+        .doctors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 10px;
-            padding: 10px 50px;
-            max-width: 100vw;
-			left: 50%; 
-			right: 50%;
-			margin-left: -50vw;
-			margin-right: -50vw;
+            margin-top: 30px;
+            padding: 10px;
+            justify-items: center;
         }
-		
+
         .doctor-card {
             perspective: 1000px;
-            width: 350px;
-			height:450px;
+            width: 100%;
+            max-width: 350px;
+            height: 450px;
             cursor: pointer;
         }
 
@@ -464,7 +460,7 @@
             position: absolute;
             bottom: 5px;
             right: 5px;
-            background: transparent;	
+            background: transparent;
             color: #ffc800;
             padding: 5px 5px;
             border-radius: 20px;
@@ -477,17 +473,17 @@
         /* Contact Section */
         #contact {
             background: linear-gradient(to bottom, #ffffff 0%, #fff9e6 100%);
-            height: 100vh;
+            min-height: 100vh;
+            overflow-y: auto;
         }
 
         .contact-content {
-			width: 100vw;
+            width: 100%;
             text-align: left;
             color: white;
-			position: relative;
-			margin-left: -50vw;
-			margin-right: -50vw;  
-			padding: 100px 50px;
+            padding: 100px 20px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .contact-content h2 {
@@ -497,39 +493,37 @@
             text-align: left;
         }
 
-        /* Contact Section Updates */
         .form-group input,
         .form-group textarea,
-        .form-group select {   
+        .form-group select {
             padding: 15px;
             border: 2px solid #ffe6a3;
             border-radius: 10px;
             font-size: 16px;
             transition: all 0.3s;
-            width: 100%;       
-            background: white; 
+            width: 100%;
+            background: white;
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
-        .form-group select:focus { 
+        .form-group select:focus {
             outline: none;
             border-color: #FFD700;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
-		
+
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* This splits the screen 50/50 on large screens */
+            grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: start; 
+            align-items: start;
         }
 
-        /* Left Column: Holds all info items */
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 10px; /* Space between , phone, etc */
+            gap: 10px;
             width: 100%;
         }
 
@@ -576,22 +570,6 @@
             flex-direction: column;
         }
 
-        .form-group input,
-        .form-group textarea {
-            padding: 15px;
-            border: 2px solid #ffe6a3;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
-
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
@@ -613,112 +591,214 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 20px rgba(255, 165, 0, 0.4);
         }
-        
-        /* ======================================= */
-        /* MOBILE RESPONSIVENESS (max-width: 768px)*/
-        /* ======================================= */
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin-top: 10px;
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            /* General Adjustments */
             .navbar {
-                padding: 10px 15px; /* Reduced padding */
-            }
-            
-            /* Hide social and language selectors on small phones to save space */
-            .social-links, .language-selector {
-                display: none; 
+                padding: 10px 20px;
             }
 
             .logo-text {
-                font-size: 24px;
+                font-size: 20px;
             }
 
-            /* Home Section */
-            .home-content h1 {
-                font-size: 40px; /* Smaller title */
-            }
-            
-            .home-content p {
-                font-size: 18px; /* Smaller subtitle */
-            }
-            
-            .btn-group {
-                flex-direction: column; /* Buttons stack vertically */
+            .nav-right {
                 gap: 15px;
             }
 
-            .btn {
-                width: 80vw; /* Make buttons wide on mobile */
-                max-width: 300px;
+            .social-links {
+                gap: 10px;
             }
 
-            /* Services Section */
+            .social-links a {
+                font-size: 16px;
+            }
+
+            .language-selector {
+                gap: 5px;
+            }
+
+            .lang-flag img {
+                width: 16px;
+                height: 16px;
+            }
+
+            .home-content h1 {
+                font-size: 32px;
+            }
+
+            .home-content p {
+                font-size: 18px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
             .services-content {
-                padding: 50px 20px; /* Reduced padding */
-                max-width: 100%;
+                padding: 80px 20px;
             }
 
             .services-content h2 {
-                font-size: 36px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr; /* Services stack in a single column */
-            }
-
-            /* About Section */
-            .about-content {
-                padding: 50px 20px;
-            }
-
-            .about-text, .about-doctor {
-                width: 100%;
-                margin-left: 0;
-                margin-right: 0;
-                padding: 10px;
-            }
-            
-            .team-stats {
-                gap: 20px;
+                font-size: 32px;
                 margin-bottom: 30px;
             }
 
-            .stat-number {
-                font-size: 32px;
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
-            
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .service-card h3 {
+                font-size: 20px;
+            }
+
+            .about-content {
+                padding: 80px 15px 30px;
+            }
+
+            .about-content h2 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .stat-label {
+                font-size: 14px;
+            }
+
+            .team-stats {
+                gap: 20px;
+            }
+
             .doctors-grid {
-                grid-template-columns: 1fr; /* Doctors stack vertically */
-                padding: 10px 20px;
-                /* Ensure cards are centered */
-                justify-items: center; 
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 10px 0;
             }
 
             .doctor-card {
-                width: 100%; 
-                max-width: 350px;
                 height: 400px;
+                max-width: 100%;
             }
 
-            /* Contact Section */
             .contact-content {
-                padding: 50px 20px;
-                width: 100%;
-                margin-left: 0;
-                margin-right: 0;
+                padding: 80px 15px 30px;
             }
-            
+
+            .contact-content h2 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
             .contact-grid {
-                grid-template-columns: 1fr; /* Contact columns stack vertically */
-                gap: 20px;
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
-            
-            /* Fix for map and form container sizing */
-            .map-container {
-                height: 200px !important; 
-            }
-            
+
             .info-item {
-                transform: none; /* Remove translation hover effect */
+                padding: 15px;
+            }
+
+            .info-item i {
+                font-size: 24px;
+                min-width: 24px;
+            }
+
+            .info-item div h3 {
+                font-size: 16px;
+            }
+
+            .info-item div p {
+                font-size: 14px;
+            }
+
+            .info-item:hover {
+                transform: translateX(5px);
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .map-container {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 8px 15px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .nav-right {
+                gap: 10px;
+            }
+
+            .social-links a {
+                font-size: 14px;
+            }
+
+            .home-content h1 {
+                font-size: 28px;
+            }
+
+            .home-content p {
+                font-size: 16px;
+            }
+
+            .services-content h2,
+            .about-content h2,
+            .contact-content h2 {
+                font-size: 28px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .doctor-card {
+                height: 350px;
             }
         }
     </style>
@@ -726,25 +806,24 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="logo/Dental.png" alt="SSC Dental Logo" style="width: 60px; height: 60px; object-fit: contain; filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.7));">
-            <span class="logo-text" data-translate="brand"></span>
+            <span class="logo-text" data-translate="brand">SSC</span>
         </div>
         <div class="nav-right">
             <div class="social-links">
-                <a href="https://www.facebook.com/SDCspanderashvilidentalclinic" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.facebook.com/SDCspanderashvilidentalclinic" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
             <div class="language-selector">
-                <span class="lang-flag active" data-lang="ka" title="ქართული"><img src="lang/GEO.png" alt="Georgian" style="width: 20px; height: 20px; margin-right: 5px;"></span>
-                <span class="lang-flag" data-lang="en" title="English"><img src="lang/EN.png" alt="Georgian" style="width: 20px; height: 20px; margin-right: 5px;"></span>
-                <span class="lang-flag" data-lang="ru" title="Русский"><img src="lang/RU.png" alt="Georgian" style="width: 20px; height: 20px; margin-right: 5px;"></span>
+                <span class="lang-flag active" data-lang="ka" title="ქართული"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect fill='%23fff' width='20' height='20'/%3E%3Cpath fill='%23f00' d='M8 0h4v8h8v4h-8v8H8v-8H0V8h8z'/%3E%3C/svg%3E" alt="Georgian"></span>
+                <span class="lang-flag" data-lang="en" title="English"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect fill='%2300247d' width='20' height='20'/%3E%3Cpath fill='%23fff' d='M0 0l20 10M20 0L0 10' stroke='%23fff' stroke-width='3'/%3E%3Cpath fill='%23cf142b' d='M0 0l20 10M20 0L0 10' stroke='%23cf142b' stroke-width='2'/%3E%3Cpath fill='%23fff' d='M8 0h4v20H8z'/%3E%3Cpath fill='%23cf142b' d='M9 0h2v20H9z'/%3E%3Cpath fill='%23fff' d='M0 8h20v4H0z'/%3E%3Cpath fill='%23cf142b' d='M0 9h20v2H0z'/%3E%3C/svg%3E" alt="English"></span>
+                <span class="lang-flag" data-lang="ru" title="Русский"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect fill='%23fff' width='20' height='6.67'/%3E%3Crect fill='%230039a6' y='6.67' width='20' height='6.67'/%3E%3Crect fill='%23d52b1e' y='13.33' width='20' height='6.67'/%3E%3C/svg%3E" alt="Russian"></span>
             </div>
         </div>
     </nav>
 
     <div class="scroll-container">
+        <!-- Home Section -->
         <section id="home" class="section">
             <div class="home-content">
                 <h1 data-translate="home-title">თქვენი ღიმილის პარტნიორი</h1>
@@ -756,6 +835,7 @@
             </div>
         </section>
 
+        <!-- Services Section -->
         <section id="services" class="section">
             <div class="services-content">
                 <h2 data-translate="services-title">ჩვენი სერვისები</h2>
@@ -794,536 +874,32 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="section">
             <div class="about-content">
-                <div class="about-text">    
-				<h2 data-translate="about-title">ჩვენ შესახებ</h2>
+                <div class="about-text">
+                    <h2 data-translate="about-title">ჩვენ შესახებ</h2>
                     <p data-translate="about-desc">ჩვენ ვართ თანამედროვე სტომატოლოგიური კლინიკა, რომელიც უზრუნველყოფს მაღალი ხარისხის მომსახურებას 10 წელზე მეტი ხნის განმავლობაში. ჩვენი გუნდი შედგება გამოცდილი სპეციალისტებისგან, რომლებიც ფლობენ უახლეს ტექნოლოგიებს და მეთოდებს. ჩვენი მთავარი მიზანია თქვენი ღიმილის ჯანმრთელობა და სილამაზე.</p>
-                <div class="team-stats">
-                    <div class="stat">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label" data-translate="stat1">წლის გამოცდილება</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">5000+</div>
-                        <div class="stat-label" data-translate="stat2">კმაყოფილი პაციენტი</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label" data-translate="stat3">პროფესიონალი</div>
+                    <div class="team-stats">
+                        <div class="stat">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label" data-translate="stat1">წლის გამოცდილება</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label" data-translate="stat2">კმაყოფილი პაციენტი</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label" data-translate="stat3">პროფესიონალი</div>
+                        </div>
                     </div>
                 </div>
-			</div>
-			<div class="about-content">
-                <div class="about-doctor">    
-				<h2 data-translate="about-title">ექიმები</h2>
-                <div class="team-stats">
-                    
-                 <div class="doctors-grid">
-                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <img src="doctors/gio.jpg" alt="Doctor 1">
-                                <div class="doctor-name">
-                                    <h3>გიორგი სპანდერაშვილი</h3>
-                                    <p>მთავარი სტომატოლოგი</p>
-                                </div>
-                                <div class="flip-hint">
-                                    <i class="fas fa-sync-alt"></i> დააჭირე
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <h3>გიორგი სპანდერაშვილი</h3>
-                                <p class="specialty">მთავარი სტომატოლოგი</p>
-                                <p class="description">15 წლიანი გამოცდილება სტომატოლოგიურ მომსახურებაში. სპეციალიზაცია: ესთეტიკური და რესტავრაციული სტომატოლოგია.</p>
-                                <ul class="qualifications">
-                                    <li>თსუ სტომატოლოგიის ფაკულტეტი</li>
-                                    <li>გერმანიის სტომატოლოგიური აკადემია</li>
-                                    <li>ევროპული სერტიფიკატი</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <img src="doctors/girl2.jpg" alt="Doctor 2">
-                                <div class="doctor-name">
-                                    <h3>ნინო კვირიკაშვილი</h3>
-                                    <p>ორთოდონტი</p>
-                                </div>
-                                <div class="flip-hint">
-                                    <i class="fas fa-sync-alt"></i> დააჭირე
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <h3>ნინო კვირიკაშვილი</h3>
-                                <p class="specialty">ორთოდონტი</p>
-                                <p class="description">10 წლიანი გამოცდილება ორთოდონტიაში. ექსპერტი უხილავი ბრეკეტების და კაპების დადგმაში.</p>
-                                <ul class="qualifications">
-                                    <li>თსუ სტომატოლოგიის ფაკულტეტი</li>
-                                    <li>ამერიკული ორთოდონტიის ბორდი</li>
-                                    <li>Invisalign სერტიფიკატი</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <img src="doctors/girl1.jpg" alt="Doctor 3">
-                                <div class="doctor-name">
-                                    <h3>მარიამ ჯაფარიძე</h3>
-                                    <p>პერიოდონტოლოგი</p>
-                                </div>
-                                <div class="flip-hint">
-                                    <i class="fas fa-sync-alt"></i> დააჭირე
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <h3>მარიამ ჯაფარიძე</h3>
-                                <p class="specialty">პერიოდონტოლოგი</p>
-                                <p class="description">12 წლიანი გამოცდილება ღრძილების და პარადონტის დაავადებების მკურნალობაში. ექსპერტი ლაზერული თერაპიის სფეროში.</p>
-                                <ul class="qualifications">
-                                    <li>თსუ სტომატოლოგიის ფაკულტეტი</li>
-                                    <li>იტალიის პერიოდონტოლოგიის სკოლა</li>
-                                    <li>ლაზერული სტომატოლოგიის სერტიფიკატი</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <img src="doctors/gio.jpg" alt="Doctor 4">
-                                <div class="doctor-name">
-                                    <h3>დავით ხუციშვილი</h3>
-                                    <p>იმპლანტოლოგი</p>
-                                </div>
-                                <div class="flip-hint">
-                                    <i class="fas fa-sync-alt"></i> დააჭირე
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <h3>დავით ხუციშვილი</h3>
-                                <p class="specialty">იმპლანტოლოგი</p>
-                                <p class="description">8 წლიანი გამოცდილება დენტალური იმპლანტების დადგმაში. 3000+ წარმატებული ოპერაცია.</p>
-                                <ul class="qualifications">
-                                    <li>თსუ ქირურგიული სტომატოლოგია</li>
-                                    <li>შვეიცარიის იმპლანტოლოგიის ინსტიტუში</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <img src="doctors/gio.jpg" alt="Doctor 4">
-                                <div class="doctor-name">
-                                    <h3>დავით ხუციშვილი</h3>
-                                    <p>იმპლანტოლოგი</p>
-                                </div>
-                                <div class="flip-hint">
-                                    <i class="fas fa-sync-alt"></i> დააჭირე
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <h3>დავით ხუციშვილი</h3>
-                                <p class="specialty">იმპლანტოლოგი</p>
-                                <p class="description">8 წლიანი გამოცდილება დენტალური იმპლანტების დადგმაში. 3000+ წარმატებული ოპერაცია.</p>
-                                <ul class="qualifications">
-                                    <li>თსუ ქირურგიული სტომატოლოგია</li>
-                                    <li>შვეიცარიის იმპლანტოლოგიის ინსტიტუში</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					                    <div class="doctor-card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <img src="doctors/gio.jpg" alt="Doctor 4">
-                                <div class="doctor-name">
-                                    <h3>დავით ხუციშვილი</h3>
-                                    <p>იმპლანტოლოგი</p>
-                                </div>
-                                <div class="flip-hint">
-                                    <i class="fas fa-sync-alt"></i> დააჭირე
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <h3>დოქტორი დავით ხუციშვილი</h3>
-                                <p class="specialty">იმპლანტოლოგი</p>
-                                <p class="description">8 წლიანი გამოცდილება დენტალური იმპლანტების დადგმაში. 3000+ წარმატებული ოპერაცია.</p>
-                                <ul class="qualifications">
-                                    <li>თსუ ქირურგიული სტომატოლოგია</li>
-                                    <li>შვეიცარიის იმპლანტოლოგიის ინსტიტუში</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>	
-
-           
-           
-                </div>
-			</div>    
-			</div>
-			</Section>
-
-
-					 <section id="contact" class="section">
-        <div class="contact-content" >
-            <h2 data-translate="contact-title" >დაგვიკავშირდით</h2>
-                       <div class="contact-grid">
-                
-                <div class="contact-info">
-                   
-					<div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3 data-translate="phone-title">ტელეფონი</h3>
-                            <p>
-                                <a href="https://wa.me/9950322185676" target="_blank" style="text-decoration: none; color: inherit;">
-                                    <i class="fab fa-whatsapp" style="color: #25D366; margin-right: 5px;"></i> +995 032 218 56 76
-                                </a>
-                            </p>
-                            <p>
-                                <a href="https://wa.me/995550051122" target="_blank" style="text-decoration: none; color: inherit;">
-                                    <i class="fab fa-whatsapp" style="color: #25D366; margin-right: 5px;"></i> +995 550 051 122
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="info-item" onclick="window.location.href='mailto:info@ssc.ge'" style="cursor: pointer;">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3 data-translate="email-title">ელ-ფოსტა</h3>
-                            <p>info@ssc.ge</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3 data-translate="hours-title">სამუშაო საათები</h3>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                                <div>
-                                    <p data-translate="hours">ორშაბათი:</p>
-                                    <p data-translate="hours">სამშაბათი:</p>
-                                    <p data-translate="hours">ოთხშაბათი:</p>
-                                    <p data-translate="hours">ხუთშაბათი:</p>
-                                    <p data-translate="hours">პარასკევი: </p>
-                                    <p data-translate="hours">შაბათი: </p>
-                                    <p data-translate="hours">კვირა:</p>
-                                </div>
-                                <div>
-                                    <p>10:00 - 19:00</p>
-                                    <p>10:00 - 19:00</p>
-                                    <p>10:00 - 19:00</p>
-                                    <p>10:00 - 19:00</p>
-                                    <p>10:00 - 19:00</p>
-                                    <p>10:00 - 19:00</p>
-                                    <p>10:00 - 19:00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3 data-translate="address-title">მისამართი</h3>
-                            <p data-translate="address">თეოფანე დავითაიას 1ბ, თბილისი</p>
-                        </div>
-                    </div>
-
-                    <div class="map-container" style="width: 100%; height: 250px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.2); margin-top: 10px;">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            style="border:0" 
-                            allowfullscreen
-                            /* Map with Red Pin on Teophane Davitaia 1b */
-                            src="https://maps.google.com/maps?q=Teophane+Davitaia+St+1b,+Tbilisi&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                        </iframe>
-                    </div>
-
-                </div>
-
-                <div>
-					<form class="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="თქვენი სახელი" data-translate-placeholder="form-name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <select id="service-select" required>
-                                <option value="" disabled selected data-translate="select-service-default">აირჩიეთ სერვისი...</option>
-                                <option value="პროფილაქტიკა">პროფილაქტიკა</option>
-                                <option value="თერაპია">თერაპია</option>
-                                <option value="ორთოდონტია">ორთოდონტია</option>
-                                <option value="ესთეტიკური">ესთეტიკური</option>
-                                <option value="ქირურგია">ქირურგია</option>
-                                <option value="ბავშვთა">ბავშვთა</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="tel" placeholder="ტელეფონი" data-translate-placeholder="form-phone" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="შეტყობინება" data-translate-placeholder="form-message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn" data-translate="form-submit">გაგზავნა</button>
-                    </form>
-                </div> 
-            </div>  
-        </div>
-        </section>
-    </div>
-
-<script>
-    const translations = {
-        ka: {
-            "brand": "SSC",
-            "select-service-default": "აირჩიეთ სერვისი...", // New Translation
-            "home-title": "თქვენი ღიმილის პარტნიორი",
-            "home-subtitle": "თანამედროვე სტომატოლოგიური მომსახურება ყველა ასაკისთვის",
-            "btn-services": "სერვისები",
-            "btn-contact": "კონტაქტი",
-            "services-title": "ჩვენი სერვისები",
-            "service1-title": "პროფილაქტიკა",
-            "service1-desc": "რეგულარული შემოწმება და პროფესიული გაწმენდა თქვენი კბილების ჯანმრთელობისთვის",
-            "service2-title": "თერაპია",
-            "service2-desc": "კარიესის მკურნალობა და კბილების რესტავრაცია თანამედროვე მასალებით",
-            "service3-title": "ორთოდონტია",
-            "service3-desc": "კბილების გასწორება და ლამაზი ღიმილის შექმნა",
-            "service4-title": "ესთეტიკური",
-            "service4-desc": "კბილების გათეთრება და ვინირები თქვენი ღიმილის სრულყოფისთვის",
-            "service5-title": "ქირურგია",
-            "service5-desc": "იმპლანტაცია და ყველა სახის სტომატოლოგიური ქირურგია",
-            "service6-title": "ბავშვთა",
-            "service6-desc": "სპეციალიზებული მომსახურება ბავშვებისთვის კომფორტულ გარემოში",
-            "about-title": "ჩვენ შესახებ",
-            "about-desc": "ჩვენ ვართ თანამედროვე სტომატოლოგიური კლინიკა...",
-            "stat1": "წლის გამოცდილება",
-            "stat2": "კმაყოფილი პაციენტი",
-            "stat3": "პროფესიონალი",
-            "contact-title": "დაგვიკავშირდით",
-            "address-title": "მისამართი",
-            "address": "თეოფანე დავითაიას 1ბ, თბილისი",
-            "phone-title": "ტელეფონი",
-            "email-title": "ელ-ფოსტა",
-            "hours-title": "სამუშაო საათები",
-            "hours": "ყოველდღე: 10:00 - 22:00",
-            "form-name": "თქვენი სახელი",
-            "form-email": "ელ-ფოსტა",
-            "form-phone": "ტელეფონი",
-            "form-message": "შეტყობინება",
-            "form-submit": "გაგზავნა"
-        },
-        en: {
-            "brand": "SSC",
-            "select-service-default": "Select a Service...", // New Translation
-            "home-title": "Your Smile Partner",
-            "home-subtitle": "Modern dental care for all ages",
-            "btn-services": "Services",
-            "btn-contact": "Contact",
-            "services-title": "Our Services",
-            "service1-title": "Prevention",
-            "service1-desc": "Regular check-ups...",
-            "service2-title": "Therapy",
-            "service2-desc": "Caries treatment...",
-            "service3-title": "Orthodontics",
-            "service3-desc": "Teeth alignment...",
-            "service4-title": "Aesthetic",
-            "service4-desc": "Teeth whitening...",
-            "service5-title": "Surgery",
-            "service5-desc": "Implantation...",
-            "service6-title": "Pediatric",
-            "service6-desc": "Specialized care...",
-            "about-title": "About Us",
-            "about-desc": "We are a modern dental clinic...",
-            "stat1": "Years of Experience",
-            "stat2": "Satisfied Patients",
-            "stat3": "Professionals",
-            "contact-title": "Contact Us",
-            "address-title": "Address",
-            "address": "Tbilisi, Rustaveli Ave. 25",
-            "phone-title": "Phone",
-            "email-title": "Email",
-            "hours-title": "Working Hours",
-            "hours": "Every day: 10:00 - 22:00",
-            "form-name": "Your Name",
-            "form-email": "Email",
-            "form-phone": "Phone",
-            "form-message": "Message",
-            "form-submit": "Send"
-        },
-        ru: {
-            "brand": "SSC",
-            "select-service-default": "Выберите услугу...", // New Translation
-            "home-title": "Партнер Вашей Улыбки",
-            "home-subtitle": "Современная стоматологическая помощь...",
-            "btn-services": "Услуги",
-            "btn-contact": "Контакты",
-            "services-title": "Наши Услуги",
-            "service1-title": "Профилактика",
-            "service1-desc": "Регулярные осмотры...",
-            "service2-title": "Терапия",
-            "service2-desc": "Лечение кариеса...",
-            "service3-title": "Ортодонтия",
-            "service3-desc": "Исправление прикуса...",
-            "service4-title": "Эстетическая",
-            "service4-desc": "Отбеливание зубов...",
-            "service5-title": "Хирургия",
-            "service5-desc": "Имплантация...",
-            "service6-title": "Детская",
-            "service6-desc": "Специализированное обслуживание...",
-            "about-title": "О Нас",
-            "about-desc": "Мы - современная стоматологическая клиника...",
-            "stat1": "Лет Опыта",
-            "stat2": "Довольных Пациентов",
-            "stat3": "Профессионалов",
-            "contact-title": "Свяжитесь с Нами",
-            "address-title": "Адрес",
-            "address": "Тбилиси, пр. Руставели 25",
-            "phone-title": "Телефон",
-            "email-title": "Email",
-            "hours-title": "Рабочие Часы",
-            "hours": "Каждый день: 10:00 - 22:00",
-            "form-name": "Ваше Имя",
-            "form-email": "Email",
-            "form-phone": "Телефон",
-            "form-message": "Сообщение",
-            "form-submit": "Отправить"
-        }
-    };
-
-    let currentLang = 'ka';
-
-    function changeLanguage(lang) {
-        currentLang = lang;
-        
-        // Update all elements with data-translate attribute
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            }
-        });
-        
-        // Update all placeholder attributes
-        document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
-            const key = element.getAttribute('data-translate-placeholder');
-            if (translations[lang][key]) {
-                element.placeholder = translations[lang][key];
-            }
-        });
-        
-        // Update active language flag
-        document.querySelectorAll('.lang-flag').forEach(flag => {
-            flag.classList.remove('active');
-            if (flag.getAttribute('data-lang') === lang) {
-                flag.classList.add('active');
-            }
-        });
-    }
-
-    // Function to scroll to section
-    function scrollToSection(index) {
-        const container = document.querySelector('.scroll-container');
-        const sections = document.querySelectorAll('.section');
-        container.scrollTo({
-            top: sections[index].offsetTop,
-            behavior: 'smooth'
-        });
-    }
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Clear red borders when user types in Name/Phone
-    document.querySelector('.contact-form input[type="text"]').addEventListener('input', function() {
-        this.style.border = "2px solid #ffe6a3";
-    });
-    document.querySelector('.contact-form input[type="tel"]').addEventListener('input', function() {
-        this.style.border = "2px solid #ffe6a3";
-    });
-
-
-    // --- SUBMIT HANDLER (Mailto Version with Validation) ---
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // 1. Get Elements
-        const nameInput = document.querySelector('.contact-form input[type="text"]');
-        const phoneInput = document.querySelector('.contact-form input[type="tel"]');
-        const messageInput = document.querySelector('.contact-form textarea');
-        const serviceSelect = document.getElementById('service-select');
-
-        // 2. GET VALUES
-        const name = nameInput.value;
-        const phone = phoneInput.value;
-        const message = messageInput.value;
-        
-        // Get the text of the selected service
-        const selectedService = serviceSelect.options[serviceSelect.selectedIndex].text;
-
-        // --- VALIDATION RULES ---
-        
-        // RULE 1: Name Length (Min 5)
-        if (name.length < 5) {
-            alert("სახელი არასწორია (Name must be at least 5 characters).");
-            nameInput.style.border = "2px solid red";
-            nameInput.focus();
-            return; 
-        }
-
-        // RULE 2: Name Content (No Numbers)
-        if (/\d/.test(name)) {
-            alert("სახელი არასწორია (Name cannot contain numbers).");
-            nameInput.style.border = "2px solid red";
-            nameInput.focus();
-            return; 
-        }
-
-        // RULE 3: Phone Content (No letters/symbols)
-        if (/[^0-9+\s-]/.test(phone)) {
-            alert("ტელეფონის ნომერი არასწორია (Phone cannot contain letters).");
-            phoneInput.style.border = "2px solid red";
-            phoneInput.focus();
-            return;
-        }
-
-        // RULE 4: Phone Length (9 to 20 characters)
-        if (phone.length < 9 || phone.length > 20) {
-            alert("ტელეფონის ნომერი არასწორია (Phone length must be between 9 and 20).");
-            phoneInput.style.border = "2px solid red";
-            phoneInput.focus();
-            return;
-        }
-        
-        // -----------------------
-
-        // 3. Construct the Email Content
-        const subject = encodeURIComponent("Service Inquiry: " + selectedService);
-        const body = encodeURIComponent(
-            "Name: " + name + "\n" +
-            "Phone: " + phone + "\n" +
-            "Service: " + selectedService + "\n\n" +
-            "Message:\n" + message
-        );
-
-        // 4. Open Email App
-        window.location.href = `mailto:777chubinidze@gmail.com?subject=${subject}&body=${body}`;
-    });
-});
-</script>
-</body>
-</html>
+                <div class="about-doctor">
+                    <h2>ექიმები</h2>
+                    <div class="doctors-grid">
+                        <div class="doctor-card" onclick="this.classList.toggle('flipped')">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect fill='%23ddd' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23999' font-size='20'%3EDoctor
